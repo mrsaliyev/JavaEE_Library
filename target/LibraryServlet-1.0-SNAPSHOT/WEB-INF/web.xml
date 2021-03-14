@@ -1,0 +1,33 @@
+<web-app>
+    <servlet>
+        <servlet-name>AddLibrarian</servlet-name>
+        <servlet-class>kz.iitu.Servlet.AddLibrarian</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>View</servlet-name>
+        <servlet-class>kz.iitu.View</servlet-class>
+    </servlet>
+
+    <filter>
+        <filter-name>AuthenticationFilter</filter-name>
+        <filter-class>kz.iitu.Servlet.AuthenticationFilter</filter-class>
+    </filter>
+
+    <filter>
+        <filter-name>RequestLoggingFilter</filter-name>
+        <filter-class>kz.iitu.Servlet.RequestLoggingFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>AuthenticationFilter</filter-name>
+        <url-pattern>/LogoutAdmin</url-pattern>
+    </filter-mapping>
+
+    <filter-mapping>
+        <filter-name>RequestLoggingFilter</filter-name>
+        <url-pattern>/AdminLogin</url-pattern>
+        <dispatcher>REQUEST</dispatcher>
+    </filter-mapping>
+
+</web-app>
