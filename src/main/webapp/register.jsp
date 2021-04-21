@@ -1,4 +1,5 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,7 +9,8 @@
     <link href="css/style.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
-<p><a href="navadmin.jsp">Go back</a> </p>
+<%--  include navadmin.jsp  --%>
+<%@ include file="navadmin.jsp"%>
 
 <div class="container">
     <div class="regbox box">
@@ -16,7 +18,10 @@
         <h1>Register Account</h1>
         <form action="AddLibrarian" method="post">
             <%--@declare id="name1"--%>
-            <%--@declare id="id1"--%><%--@declare id="surname1"--%><%--@declare id="email1"--%><%--@declare id="password1>name</label>
+            <%--@declare id="id1"--%>
+                <%--@declare id="surname1"--%>
+                <%--@declare id="email1"--%>
+                <%--@declare id="password1>name</label>
             <input type="--%><%--@declare id="password1"--%><label for="id1">ID</label>
             <input type="text" placeholder="id" name="id" required>
             <label for="name1">Name</label>
@@ -31,5 +36,11 @@
         </form>
     </div>
 </div>
+
+<%
+    if ((String)request.getAttribute("status") != null && ((String)request.getAttribute("status")).equals("false")) {
+        out.print("<p class=error>Email already exist!</p>");
+    }
+%>
 </body>
 </html>

@@ -31,6 +31,7 @@ public class AdminLogin extends HttpServlet {
             userEmail.setMaxAge(30*60);
             response.addCookie(userEmail);
 
+
             request.getRequestDispatcher("navadmin.jsp").include(request, response);
             response.sendRedirect("navadmin.jsp");
 

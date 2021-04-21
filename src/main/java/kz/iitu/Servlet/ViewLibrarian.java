@@ -17,7 +17,7 @@ public class ViewLibrarian extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
         PrintWriter out=response.getWriter();
-        out.println("<a href=\"index.html\">Go back</a>");
+        out.println("<a href=\"navadmin.jsp\">Go back</a>");
         out.println("<div class='container'>");
 
         List<LibrarianBean> list = LibrarianDao.view();

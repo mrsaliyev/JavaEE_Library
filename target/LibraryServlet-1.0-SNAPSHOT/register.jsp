@@ -16,7 +16,10 @@
         <h1>Register Account</h1>
         <form action="AddLibrarian" method="post">
             <%--@declare id="name1"--%>
-            <%--@declare id="id1"--%><%--@declare id="surname1"--%><%--@declare id="email1"--%><%--@declare id="password1>name</label>
+            <%--@declare id="id1"--%>
+                <%--@declare id="surname1"--%>
+                <%--@declare id="email1"--%>
+                <%--@declare id="password1>name</label>
             <input type="--%><%--@declare id="password1"--%><label for="id1">ID</label>
             <input type="text" placeholder="id" name="id" required>
             <label for="name1">Name</label>

@@ -1,4 +1,4 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,12 +8,14 @@
     <link href="css/style.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
-<a href="index.html">Go back</a>
+
+<%@ include file="header.jsp"%>
+
 <div class="container">
     <div class="box">
         <img class="avatar" src="img/user-avatar.jpg">
         <h1>Login Account</h1>
-        <form action="LibrarianLogin" method="post">
+        <form action = "LibrarianLogin" method="post">
             <p>Email</p>
             <input type="text" placeholder="Email" name="email" required>
             <p>Password</p>

@@ -1,4 +1,3 @@
-
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -6,7 +5,7 @@
     <title>JSP Page</title>
 </head>
 <body>
-<a href="index.html">Go back</a>
+<%@ include file="header.jsp"%>
 
 <form action="AdminLogin" method="post">
     <h2>Login Form</h2>

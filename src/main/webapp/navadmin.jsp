@@ -1,12 +1,10 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title>Admin</title>
-</head>
-<body>
-<a href="register.jsp">Add Librarian</a>
-<a href="ViewLibrarian">View Librarian</a>
-<a href="LogoutAdmin">Logout</a>
+<nav>
+    pageContext.setAttribute("user",email,PageContext.SESSION_SCOPE);
+    <%= "Welcome " + request.getParameter("email") %><br>
 
-</body>
-</html>
+
+    <a href="register.jsp">Add Librarian</a>
+    <a href="ListOfBooks.jsp">View Librarian</a>
+    <a href="LogoutAdmin">Logout</a>
+</nav>
+
