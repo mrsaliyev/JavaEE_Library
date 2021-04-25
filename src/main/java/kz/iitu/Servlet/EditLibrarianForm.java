@@ -18,7 +18,7 @@ public class EditLibrarianForm extends HttpServlet {
         response.setContentType("text/html");
         PrintWriter out=response.getWriter();
 
-        out.println("<a href=\"index.html\">Go back</a>");
+        out.println("<a href=\"index.jsp\">Go back</a>");
         request.getRequestDispatcher("navadmin.jsp").include(request, response);
         out.println("<div class='container'>");
         String sid = request.getParameter("id");

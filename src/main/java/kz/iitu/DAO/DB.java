@@ -9,7 +9,7 @@ public class DB {
         try{
             Class.forName("org.postgresql.Driver");
             con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/library",
-                        "postgres","123456");
+                        "postgres","madiyar");
 
         }catch(Exception e){
             e.printStackTrace();

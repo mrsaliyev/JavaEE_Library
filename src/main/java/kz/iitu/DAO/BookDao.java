@@ -13,12 +13,11 @@ public class BookDao {
         boolean status = false;
         try{
             Connection con = DB.getCon();
-            PreparedStatement ps = con.prepareStatement("insert into book values(?,?,?,?,?)");
-            ps.setInt(1,bean.getId());
-            ps.setString(2,bean.getTitle());
-            ps.setString(3,bean.getGenre());
-            ps.setString(4,bean.getPublisher());
-            ps.setString(5,bean.getAuthor());
+            PreparedStatement ps = con.prepareStatement("insert into book values(?,?,?,?)");
+            ps.setString(1,bean.getTitle());
+            ps.setString(2,bean.getGenre());
+            ps.setString(3,bean.getPublisher());
+            ps.setString(4,bean.getAuthor());
             ps.executeUpdate();
             status = true;
             con.close();

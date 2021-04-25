@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 public class LogoutAdmin extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.getSession().invalidate();
-        response.sendRedirect("index.html");
+        response.sendRedirect("index.jsp");
     }
 }
 

@@ -16,7 +16,7 @@
         <img class="avatar" src="img/user-avatar.jpg">
         <h1>Login Account</h1>
         <form action = "LibrarianLogin" method="post">
-            <p>Email</p>
+            <%--@declare id="email"--%><label for="email">Email:</label>
             <input type="text" placeholder="Email" name="email" required>
             <p>Password</p>
             <input type="password" placeholder="Password" name="password" required>

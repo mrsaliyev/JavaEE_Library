@@ -1,6 +1,7 @@
 <%@ page import="kz.iitu.BEAN.BookBean" %>
 <%@ page import="kz.iitu.DAO.BookDao" %>
 <%@ page import="java.awt.*" %>
+<%@ page import="java.util.List" %>
 <jsp:useBean id="bookDao" scope="session" class="kz.iitu.DAO.BookDao" />
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
@@ -21,7 +22,7 @@
                 "                    <p>Price: " + b.getGenre() + "</p>\n" +
                 "                    <p>Name: " + b.getPublisher() + "</p>\n" +
                 "                    <p>Price: " + b.getAuthor() + "</p>\n" +
-                "                    <a href=\"book?id=" +b.getId()+ "\">Show detail</a>" +
+                "                    <a href=\"book?id=" + b.getId() + "\">Show detail</a>" +
                 "                </div>\n" +
                 "            </div>";
         s += str + "\n";

@@ -1,12 +1,20 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Admin</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link href="css/style.css" rel="stylesheet" type="text/css"/>
+    <title>JSP Page</title>
 </head>
 <body>
-<a href="AddBook">Add Book</a>
-<a href="ViewBook">View Books</a>
-<a href="LogoutAdmin">Logout</a>
+
+<header>
+    <nav class="ul-flex">
+        <div>
+            <a class="header-link" href="addBook.jsp">Add Book</a>
+            <a class="ListOfBooks.jsp" href="ListOfBooks.jsp">View Books</a>
+            <a class="ListOfBooks.jsp" href="Logout">Logout</a>
+        </div>
+    </nav>
+</header>
 
 </body>
 </html>

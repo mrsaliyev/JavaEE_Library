@@ -1,4 +1,3 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,7 +7,8 @@
     <link href="css/style.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
-<p><a href="navadmin.jsp">Go back</a> </p>
+<%--  include navadmin.jsp  --%>
+<jsp:include page="navadmin.jsp" />
 
 <div class="container">
     <div class="regbox box">
@@ -34,5 +34,11 @@
         </form>
     </div>
 </div>
+
+<%--<%--%>
+<%--    if ((String)request.getAttribute("status") != null && ((String)request.getAttribute("status")).equals("false")) {--%>
+<%--        out.print("<p class=error>Email already exist!</p>");--%>
+<%--    }--%>
+<%--%>--%>
 </body>
 </html>
