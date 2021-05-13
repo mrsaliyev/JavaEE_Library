@@ -13,7 +13,7 @@ public class BookDao {
         int status = 0;
         try{
             Connection con = DB.getCon();
-            PreparedStatement ps = con.prepareStatement("insert into book values(3,?,?,?,?)");
+            PreparedStatement ps = con.prepareStatement("insert into book values(4,?,?,?,?)");
             ps.setString(1,bean.getTitle());
             ps.setString(2,bean.getGenre());
             ps.setString(3,bean.getPublisher());
@@ -25,23 +25,23 @@ public class BookDao {
 
         return status;
     }
-//    public static int update(BookBean bean){
-//        int status = 0;
-//        try{
-//            Connection con = DB.getCon();
-//            PreparedStatement ps=con.prepareStatement("update book set title=?, genre=?,publisher=?,author=? where isbn=?");
-//            ps.setString(1,bean.getTitle());
-//            ps.setString(2,bean.getGenre());
-//            ps.setString(3,bean.getPublisher());
-//            ps.setString(4,bean.getAuthor());
-//            ps.setInt(5,bean.getId());
-//            status = ps.executeUpdate();
-//            con.close();
-//
-//        }catch(Exception e){System.out.println(e);}
-//
-//        return status;
-//    }
+    public static int update(BookBean bean){
+        int status = 0;
+        try{
+            Connection con = DB.getCon();
+            PreparedStatement ps=con.prepareStatement("update book set title=?, genre=?,publisher=?,author=? where isbn=?");
+            ps.setString(1,bean.getTitle());
+            ps.setString(2,bean.getGenre());
+            ps.setString(3,bean.getPublisher());
+            ps.setString(4,bean.getAuthor());
+            ps.setInt(5,bean.getId());
+            status = ps.executeUpdate();
+            con.close();
+
+        }catch(Exception e){System.out.println(e);}
+
+        return status;
+    }
 
     public static List<BookBean> view(){
         List<BookBean> list = new ArrayList<BookBean>();
@@ -51,7 +51,6 @@ public class BookDao {
             ResultSet rs = ps.executeQuery();
             while(rs.next()){
                 BookBean bean = new BookBean();
-                bean.setId(rs.getInt("id"));
                 bean.setTitle(rs.getString("title"));
                 bean.setGenre(rs.getString("genre"));
                 bean.setPublisher(rs.getString("publisher"));

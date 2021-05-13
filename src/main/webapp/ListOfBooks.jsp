@@ -1,40 +1,44 @@
 <%@ page import="kz.iitu.BEAN.BookBean" %>
 <%@ page import="kz.iitu.DAO.BookDao" %>
 <%@ page import="java.awt.*" %>
+<%@ page import="java.sql.SQLException" %>
 <%@ page import="java.util.List" %>
 <jsp:useBean id="bookDao" scope="session" class="kz.iitu.DAO.BookDao" />
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%
-    List<BookBean> books = BookDao.view();
-    String s = "";
-%>
 
 <html>
 <head>
     <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 </head>
 <body>
+<table class="table table-striped">
+    <thead>
+    <th scope="col">#</th>
+    <th scope="col">Name</th>
+    <th scope="col">Surname</th>
+    <th scope="col">Email</th>
+    <th scope="col">Password</th>
+    </thead>
+
 <%
-    for(BookBean b : books) {
-        String str = "<div class=\"book_card\">\n" +
-                "                <div>\n" +
-                "                    <p>Name: " + b.getTitle() + "</p>\n" +
-                "                    <p>Price: " + b.getGenre() + "</p>\n" +
-                "                    <p>Name: " + b.getPublisher() + "</p>\n" +
-                "                    <p>Price: " + b.getAuthor() + "</p>\n" +
-                "                    <a href=\"book?id=" + b.getId() + "\">Show detail</a>" +
-                "                </div>\n" +
-                "            </div>";
-        s += str + "\n";
-    }
+    List<BookBean> books = BookDao.view();
+    int i=0;
+    while (books.size()>i) {
 %>
 
-
-<div class="div_main">
-    <h1 class="title">Books</h1>
-    <div class="ul-flex">
-        <%= s %>
-    </div>
-</div>
+<tbody>
+<tr>
+    <th scope="row"><%= i %></th>
+    <td><%= books.get(i).getTitle()%></td>
+    <td><%= books.get(i).getGenre()%></td>
+    <td><%= books.get(i).getPublisher()%></td>
+    <td><%= books.get(i).getAuthor()%></td>
+</tr>
+</tbody>
+<%
+        i++;}
+%>
+</table>
 </body>
 </html>

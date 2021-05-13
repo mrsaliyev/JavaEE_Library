@@ -11,7 +11,7 @@
         <div>
             <a class="header-link" href="addBook.jsp">Add Book</a>
             <a class="ListOfBooks.jsp" href="ListOfBooks.jsp">View Books</a>
-            <a class="ListOfBooks.jsp" href="Logout">Logout</a>
+            <a class="ListOfBooks.jsp" href="index.jsp">Logout</a>
         </div>
     </nav>
 </header>
