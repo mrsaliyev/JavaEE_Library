@@ -11,18 +11,18 @@ import java.util.List;
 
 public class LibrarianDao {
 
-    public static boolean save(LibrarianBean bean){
-        boolean status = false;
+    public static int save(LibrarianBean bean){
+        System.out.println("Creating User");
+        int status = 0;
         try{
             Connection con = DB.getCon();
-            PreparedStatement ps = con.prepareStatement("insert into user values(?,?,?,?,?)");
-            ps.setInt(1,bean.getId());
-            ps.setString(2,bean.getName());
-            ps.setString(3,bean.getSurname());
-            ps.setString(4,bean.getEmail());
-            ps.setString(5,bean.getPassword());
-            ps.executeUpdate();
-            status = true;
+            PreparedStatement ps = con.prepareStatement("insert into users(id,name, surname, email, password) values(4,?,?,?,?)");
+            ps.setString(1,bean.getName());
+            ps.setString(2,bean.getSurname());
+            ps.setString(3,bean.getEmail());
+            ps.setString(4,bean.getPassword());
+
+            status = ps.executeUpdate();
             con.close();
 
         }catch(Exception e){System.out.println(e);}
@@ -33,7 +33,7 @@ public class LibrarianDao {
         int status = 0;
         try{
             Connection con = DB.getCon();
-            PreparedStatement ps=con.prepareStatement("update 'user' set name=?, surname=?,email=?,password=? where id=?");
+            PreparedStatement ps=con.prepareStatement("update users set name=?, surname=?,email=?,password=? where id=?");
             ps.setString(1,bean.getName());
             ps.setString(2,bean.getSurname());
             ps.setString(3,bean.getEmail());
@@ -51,7 +51,7 @@ public class LibrarianDao {
         List<LibrarianBean> list = new ArrayList<LibrarianBean>();
         try{
             Connection con = DB.getCon();
-            PreparedStatement ps = con.prepareStatement("select * from 'user'");
+            PreparedStatement ps = con.prepareStatement("select * from users");
             ResultSet rs = ps.executeQuery();
             while(rs.next()){
                 LibrarianBean bean = new LibrarianBean();
@@ -72,7 +72,7 @@ public class LibrarianDao {
         LibrarianBean bean = new LibrarianBean();
         try{
             Connection con=DB.getCon();
-            PreparedStatement ps=con.prepareStatement("select * from user where id=?");
+            PreparedStatement ps=con.prepareStatement("select * from users where id=?");
             ps.setInt(1,id);
             ResultSet rs=ps.executeQuery();
             if(rs.next()){
@@ -91,7 +91,7 @@ public class LibrarianDao {
         int status=0;
         try{
             Connection con=DB.getCon();
-            PreparedStatement ps=con.prepareStatement("delete from user where id=?");
+            PreparedStatement ps=con.prepareStatement("delete from users where id=?");
             ps.setInt(1,id);
             status=ps.executeUpdate();
             con.close();
@@ -101,22 +101,26 @@ public class LibrarianDao {
         return status;
     }
 
-    public static boolean authenticate(String email, String password){
-        boolean status=false;
+    public static LibrarianBean authenticate(String email, String password){
+        LibrarianBean librarianBean = null;
         try{
             Connection con = DB.getCon();
-            PreparedStatement ps = con.prepareStatement("select * from user where email=? and password=?");
+            PreparedStatement ps = con.prepareStatement("select * from users where email=? and password=?");
             ps.setString(1,email);
             ps.setString(2,password);
+
             ResultSet rs = ps.executeQuery();
+
             if(rs.next()){
-                status = true;
+                librarianBean = new LibrarianBean();
+                librarianBean.setEmail(rs.getString("email"));
+                librarianBean.setPassword(password);
             }
             con.close();
 
         }catch(Exception e){System.out.println(e);}
 
-        return status;
+        return librarianBean;
     }
 }
 

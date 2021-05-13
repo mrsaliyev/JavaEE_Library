@@ -3,17 +3,16 @@ package kz.iitu.DAO;
 import java.sql.*;
 
 public class DB {
-    private static Connection con;
 
-    public static Connection getCon(){
-        try{
-            Class.forName("org.postgresql.Driver");
-            con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/library",
-                        "postgres","madiyar");
+    public static Connection getCon() throws ClassNotFoundException, SQLException {
 
-        }catch(Exception e){
-            e.printStackTrace();
-        }
-        return con;
+        String url = "jdbc:postgresql://localhost:5432/library";
+        String username = "postgres";
+        String password = "123456";
+        System.out.println("In DBConnection.java class ");
+
+        Class.forName("org.postgresql.Driver");
+
+        return DriverManager.getConnection(url, username, password);
     }
 }

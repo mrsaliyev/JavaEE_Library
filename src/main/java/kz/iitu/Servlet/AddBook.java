@@ -26,7 +26,7 @@ public class AddBook extends HttpServlet {
         String author = request.getParameter("author");
         BookBean bean = new BookBean(title,genre,publisher,author);
 
-        if (BookDao.save(bean) == true){
+        if (BookDao.save(bean) == 1){
             out.print("<h4>Book added successfully</h4>");
             request.getRequestDispatcher("navlibrarian.jsp").include(request, response);
             response.sendRedirect("navlibrarian.jsp");

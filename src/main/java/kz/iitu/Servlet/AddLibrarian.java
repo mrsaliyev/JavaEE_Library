@@ -18,17 +18,16 @@ public class AddLibrarian extends HttpServlet {
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
 
-        int id = Integer.parseInt(request.getParameter("id"));
         String name = request.getParameter("name");
         String surname = request.getParameter("surname");
         String email = request.getParameter("email");
         String password = request.getParameter("password");
-        LibrarianBean bean = new LibrarianBean(id, name, surname, email, password);
+        LibrarianBean bean = new LibrarianBean(name, surname, email, password);
 
-        if (LibrarianDao.save(bean) == true){
+        if (LibrarianDao.save(bean) == 1){
             out.print("<h4>Librarian added successfully</h4>");
-            request.getRequestDispatcher("navlibrarian.jsp").include(request, response);
-            response.sendRedirect("navlibrarian.jsp");
+            request.getRequestDispatcher("navadmin.jsp").include(request, response);
+            response.sendRedirect("navadmin.jsp");
         }else {
             out.print("<h4>Error</h4>");
             request.getRequestDispatcher("register.jsp").include(request, response);

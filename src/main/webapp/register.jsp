@@ -20,8 +20,8 @@
                 <%--@declare id="surname1"--%>
                 <%--@declare id="email1"--%>
                 <%--@declare id="password1>name</label>
-            <input type="--%><%--@declare id="password1"--%><label for="id1">ID</label>
-            <input type="text" placeholder="id" name="id" required>
+            <input type="--%><%--@declare id="password1"--%>
+
             <label for="name1">Name</label>
             <input type="text" placeholder="Name" name="name" required>
                 <label for="surname1">Surname</label>

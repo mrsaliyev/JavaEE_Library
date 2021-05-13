@@ -26,7 +26,8 @@ public class LibrarianLogin extends HttpServlet {
 
         String email=request.getParameter("email");
         String password=request.getParameter("password");
-        if(LibrarianDao.authenticate(email, password)){
+        request.getRequestDispatcher("navlibrarian.jsp").include(request, response);
+        if(LibrarianDao.authenticate(email, password) != null){
             HttpSession session = request.getSession();
             session.setAttribute("email",email);
             request.getRequestDispatcher("navlibrarian.jsp").include(request, response);
